@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JWT Inspector &amp; Weakness Checker</title>
+<meta name="description" content="Decode a JSON Web Token and audit it for weak secrets, alg:none, missing claims and more — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>JWT Inspector &amp; Weakness Checker</h1>
+<p class="sub">Paste a token to decode it and audit it. Everything runs locally — nothing is uploaded. Use only tokens you own or are authorised to test.</p>
+<label for="token">JWT</label>
+<textarea id="token" spellcheck="false" autocomplete="off" placeholder="eyJhbGciOi..."></textarea>
+<div class="row" role="group" aria-label="Example tokens">
+  <button class="primary" id="analyze">Analyze</button>
+  <button data-ex="weak">Example: weak secret</button>
+  <button data-ex="strong">Example: well-formed</button>
+  <button data-ex="none">Example: alg none</button>
+  <button data-ex="bad">Example: many issues</button>
+</div>
+<div id="out" aria-live="polite"></div>
+<div class="card">
+  <h2>Verify with a secret</h2>
+  <label for="secret">HMAC secret (HS256/384/512)</label>
+  <input id="secret" type="text" autocomplete="off" spellcheck="false">
+  <div class="row"><button id="verify">Verify signature</button></div>
+  <p id="vmsg" aria-live="polite"></p>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
