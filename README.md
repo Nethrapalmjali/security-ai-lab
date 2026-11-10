@@ -7,7 +7,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 ## Projects
 
 <!-- PROJECTS:START -->
-_First project coming soon._
+- **[JWT Inspector & Weakness Checker](projects/jwt-inspector/)** — Decode a JSON Web Token and audit it for weak secrets, alg:none, risky headers and missing claims, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/jwt-inspector/)
 <!-- PROJECTS:END -->
 
 ## Structure

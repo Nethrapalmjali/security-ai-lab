@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "slug": "jwt-inspector",
+    "title": "JWT Inspector & Weakness Checker",
+    "category": "Cybersecurity",
+    "description": "Decode a JSON Web Token and audit it for weak secrets, alg:none, risky headers and missing claims, entirely in the browser.",
+    "date": "2026-11-10"
+  }
+]
