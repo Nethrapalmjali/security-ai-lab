@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Naive Bayes Spam Lab</title>
+<meta name="description" content="Train a Naive Bayes spam classifier in your browser, see exactly which words drive each prediction, and evaluate it on held-out data.">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Naive Bayes Spam Lab</h1>
+<p class="sub">A spam classifier trained live in your browser on a small synthetic corpus. Teach it new messages and watch the word evidence change. Nothing leaves your machine.</p>
+
+<div class="card">
+  <h2>1. Classify a message</h2>
+  <label for="msg">Message</label>
+  <textarea id="msg" spellcheck="false" placeholder="Type or paste a message…"></textarea>
+  <div class="row" role="group" aria-label="Example messages">
+    <button class="primary" id="go">Classify</button>
+    <button data-ex="Congratulations! You won a free gift card. Click http://claim.example now">Example: prize scam</button>
+    <button data-ex="URGENT: verify your password at http://bank-login.example or your account will be suspended">Example: phishing</button>
+    <button data-ex="Can you send me the lab notes before the networking exam on Friday?">Example: normal</button>
+  </div>
+  <div id="result" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h2>2. Teach the model</h2>
+  <p class="d">Add the message above as a new training example (online learning).</p>
+  <div class="row">
+    <button id="addSpam">Train as spam</button>
+    <button id="addHam">Train as not spam</button>
+    <button id="reset">Reset model</button>
+  </div>
+  <p id="status" aria-live="polite" class="d"></p>
+</div>
+
+<div class="card">
+  <h2>3. Evaluate on held-out data</h2>
+  <div class="row">
+    <label for="seed" style="margin:0;align-self:center">Random seed</label>
+    <input id="seed" type="number" value="1" style="width:6rem">
+    <label for="alpha" style="margin:0;align-self:center">Smoothing α</label>
+    <input id="alpha" type="number" value="1" min="0.01" step="0.1" style="width:6rem">
+    <button id="eval">Run 70/30 split</button>
+  </div>
+  <div id="evalOut" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h2>Most indicative words</h2>
+  <div class="grid"><div><h3>Spam</h3><ul id="topSpam" class="f"></ul></div><div><h3>Not spam</h3><ul id="topHam" class="f"></ul></div></div>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
