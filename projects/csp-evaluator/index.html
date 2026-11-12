@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSP Policy Evaluator</title>
+<meta name="description" content="Paste a Content-Security-Policy and get a graded audit of XSS-relevant weaknesses, with fixes — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>CSP Policy Evaluator</h1>
+<p class="sub">Paste a <code>Content-Security-Policy</code> header value (or the whole header line). It is analysed locally — nothing is uploaded.</p>
+<label for="csp">Policy</label>
+<textarea id="csp" spellcheck="false" autocomplete="off" placeholder="default-src 'self'; script-src 'self' ..."></textarea>
+<div class="row" role="group" aria-label="Example policies">
+  <button class="primary" id="go">Evaluate</button>
+  <button data-ex="strict">Example: strict (nonce)</button>
+  <button data-ex="typical">Example: typical</button>
+  <button data-ex="weak">Example: very weak</button>
+  <button data-ex="jsonp">Example: allowlist bypass</button>
+  <button data-ex="reportonly">Example: report-only</button>
+</div>
+<div id="out" aria-live="polite"></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
