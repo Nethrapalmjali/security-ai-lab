@@ -12,5 +12,12 @@
     "category": "AI",
     "description": "Train an explainable Naive Bayes spam classifier in the browser, teach it new messages and evaluate it on held-out data.",
     "date": "2026-11-11"
+  },
+  {
+    "slug": "csp-evaluator",
+    "title": "CSP Policy Evaluator",
+    "category": "Cybersecurity",
+    "description": "Grade a Content-Security-Policy header for XSS, clickjacking and allowlist-bypass weaknesses, with concrete fixes, entirely in the browser.",
+    "date": "2026-11-12"
   }
 ]
