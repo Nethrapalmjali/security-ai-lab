@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>K-Means Clustering Lab</title>
+<meta name="description" content="Step through k-means clustering in your browser: k-means++ seeding, elbow curve, silhouette score, click-to-add points and CSV import.">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>K-Means Clustering Lab</h1>
+<p class="sub">Watch Lloyd's algorithm assign points and move centroids one step at a time. Click the canvas to add points, load a dataset, or paste a CSV. Everything runs locally.</p>
+
+<div class="card">
+  <div class="grid">
+    <div>
+      <canvas id="cv" width="600" height="600" role="img" aria-label="Scatter plot of points coloured by cluster, with centroids as large diamonds. Click to add a point."></canvas>
+      <p class="d">Click the plot to add a point.</p>
+    </div>
+    <div>
+      <div class="row" role="group" aria-label="Datasets">
+        <button data-ds="blobs">Blobs</button>
+        <button data-ds="moons">Moons</button>
+        <button data-ds="rings">Rings</button>
+        <button data-ds="uniform">Uniform</button>
+        <button id="clear">Clear</button>
+      </div>
+      <label for="k">Clusters (k): <output id="kv">3</output></label>
+      <input id="k" type="range" min="1" max="8" value="3">
+      <label for="init">Initialisation</label>
+      <select id="init"><option value="kmeans++">k-means++</option><option value="random">Random points</option></select>
+      <label for="seed">Random seed</label>
+      <input id="seed" type="number" value="1" min="0" step="1">
+      <div class="row">
+        <button class="primary" id="start">Initialise</button>
+        <button id="step">Step</button>
+        <button id="play">Run to convergence</button>
+      </div>
+      <div id="stats" aria-live="polite" class="stats"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Choosing k</h2>
+  <p class="d">Best-of-5 runs for k = 1…8. Look for the elbow in inertia and the peak in silhouette.</p>
+  <div class="row"><button id="elbow">Compute elbow &amp; silhouette</button></div>
+  <div id="elbowOut"></div>
+</div>
+
+<div class="card">
+  <h2>Import CSV</h2>
+  <label for="csv">Two numeric columns (x,y), one point per line</label>
+  <textarea id="csv" spellcheck="false" placeholder="1.2,3.4&#10;2.0,2.8&#10;…"></textarea>
+  <div class="row"><button id="load">Load points</button></div>
+  <p id="msg" class="d" aria-live="polite"></p>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

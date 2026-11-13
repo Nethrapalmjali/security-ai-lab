@@ -1,0 +1,8 @@
+canvas{width:100%;max-width:600px;aspect-ratio:1;background:#0b0f14;border:1px solid var(--line);border-radius:10px;cursor:crosshair;touch-action:manipulation}
+select{width:100%;background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.5rem}
+input[type=range]{padding:0}
+.stats{font:14px ui-monospace,monospace;color:var(--mut);line-height:1.8}
+.stats b{color:var(--fg)}
+table{border-collapse:collapse;margin:.5rem 0;width:100%}td,th{border:1px solid var(--line);padding:.3rem .6rem;text-align:right}
+td .b{display:inline-block;height:8px;background:var(--acc);border-radius:4px;vertical-align:middle}
+tr.best td{color:#3fb950}
