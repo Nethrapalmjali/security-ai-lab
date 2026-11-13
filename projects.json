@@ -19,5 +19,12 @@
     "category": "Cybersecurity",
     "description": "Grade a Content-Security-Policy header for XSS, clickjacking and allowlist-bypass weaknesses, with concrete fixes, entirely in the browser.",
     "date": "2026-11-12"
+  },
+  {
+    "slug": "kmeans-lab",
+    "title": "K-Means Clustering Lab",
+    "category": "AI",
+    "description": "Step through k-means clustering with k-means++ seeding, elbow and silhouette analysis, click-to-add points and CSV import, entirely in the browser.",
+    "date": "2026-11-13"
   }
 ]
