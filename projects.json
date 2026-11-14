@@ -26,5 +26,12 @@
     "category": "AI",
     "description": "Step through k-means clustering with k-means++ seeding, elbow and silhouette analysis, click-to-add points and CSV import, entirely in the browser.",
     "date": "2026-11-13"
+  },
+  {
+    "slug": "web-log-hunter",
+    "title": "Web Log Threat Hunter",
+    "category": "Cybersecurity",
+    "description": "Paste Apache/nginx access logs to detect SQLi, XSS, traversal, Log4Shell, scanners and brute-force bursts with per-IP risk scoring, entirely in the browser.",
+    "date": "2026-11-14"
   }
 ]
