@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Web Log Threat Hunter</title>
+<meta name="description" content="Paste Apache/nginx access logs and detect SQLi, XSS, traversal, Log4Shell, scanners and brute-force attempts — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Web Log Threat Hunter</h1>
+<p class="sub">Paste web server access logs (Apache/nginx combined format). Attack patterns, scanners and brute-force bursts are flagged locally — nothing is uploaded. Analyse only logs you are authorised to review.</p>
+<label for="log">Access log</label>
+<textarea id="log" spellcheck="false" autocomplete="off" placeholder='203.0.113.7 - - [14/Nov/2026:10:00:01 +0000] "GET / HTTP/1.1" 200 512 "-" "Mozilla/5.0"'></textarea>
+<div class="opts">
+  <label for="thr">Brute-force threshold (failed 401/403)<br><input id="thr" type="number" min="2" max="1000" value="5"></label>
+  <label for="win">Window (seconds)<br><input id="win" type="number" min="1" max="86400" value="60"></label>
+</div>
+<div class="row" role="group" aria-label="Actions">
+  <button class="primary" id="go">Hunt</button>
+  <button id="ex">Load example log</button>
+  <button id="clr">Clear</button>
+</div>
+<div id="out" aria-live="polite"></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
