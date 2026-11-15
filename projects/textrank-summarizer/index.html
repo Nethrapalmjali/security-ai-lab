@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TextRank Summarizer</title>
+<meta name="description" content="Extractive text summarisation with TextRank (PageRank on a sentence-similarity graph), running entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>TextRank Summarizer</h1>
+<p class="sub">Sentences are nodes, word overlap forms edges, PageRank finds the most central sentences. No model, no upload.</p>
+<label for="txt">Text to summarise</label>
+<textarea id="txt" spellcheck="false"></textarea>
+<div class="row">
+  <label for="n" style="margin:0">Sentences in summary:</label>
+  <input id="n" type="number" min="1" max="20" value="3" style="width:4em">
+  <button class="primary" id="go">Summarise</button>
+  <button data-ex="0">Example: solar energy</button>
+  <button data-ex="1">Example: phishing</button>
+</div>
+<div id="sum" class="panel" aria-live="polite" hidden><strong>Summary</strong><p id="sumtxt"></p></div>
+<div id="all" class="panel" hidden><strong>All sentences, scored</strong> <span class="sub">(bar = PageRank centrality; highlighted = selected)</span><div id="list"></div></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
