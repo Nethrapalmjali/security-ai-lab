@@ -33,5 +33,12 @@
     "category": "Cybersecurity",
     "description": "Paste Apache/nginx access logs to detect SQLi, XSS, traversal, Log4Shell, scanners and brute-force bursts with per-IP risk scoring, entirely in the browser.",
     "date": "2026-11-14"
+  },
+  {
+    "slug": "textrank-summarizer",
+    "title": "TextRank Summarizer",
+    "category": "AI",
+    "description": "Summarise any text with TextRank: PageRank over a sentence-similarity graph, with per-sentence centrality scores, entirely in the browser.",
+    "date": "2026-11-15"
   }
 ]

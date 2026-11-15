@@ -12,6 +12,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[CSP Policy Evaluator](projects/csp-evaluator/)** — Grade a Content-Security-Policy header for XSS, clickjacking and allowlist-bypass weaknesses, with concrete fixes, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/csp-evaluator/)
 - **[K-Means Clustering Lab](projects/kmeans-lab/)** — Step through k-means clustering with k-means++ seeding, elbow and silhouette analysis, click-to-add points and CSV import, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/kmeans-lab/)
 - **[Web Log Threat Hunter](projects/web-log-hunter/)** — Paste Apache/nginx access logs to detect SQLi, XSS, traversal, Log4Shell, scanners and brute-force bursts with per-IP risk scoring, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/web-log-hunter/)
+- **[TextRank Summarizer](projects/textrank-summarizer/)** — Summarise any text with TextRank: PageRank over a sentence-similarity graph, with per-sentence centrality scores, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/textrank-summarizer/)
 <!-- PROJECTS:END -->
 
 ## Structure
