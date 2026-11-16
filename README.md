@@ -13,6 +13,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[K-Means Clustering Lab](projects/kmeans-lab/)** — Step through k-means clustering with k-means++ seeding, elbow and silhouette analysis, click-to-add points and CSV import, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/kmeans-lab/)
 - **[Web Log Threat Hunter](projects/web-log-hunter/)** — Paste Apache/nginx access logs to detect SQLi, XSS, traversal, Log4Shell, scanners and brute-force bursts with per-IP risk scoring, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/web-log-hunter/)
 - **[TextRank Summarizer](projects/textrank-summarizer/)** — Summarise any text with TextRank: PageRank over a sentence-similarity graph, with per-sentence centrality scores, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/textrank-summarizer/)
+- **[Email Header Analyzer (SPF/DKIM/DMARC)](projects/email-header-analyzer/)** — Paste raw email headers to check SPF/DKIM/DMARC results, spoofing and phishing indicators and the forensic delivery path, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/email-header-analyzer/)
 <!-- PROJECTS:END -->
 
 ## Structure

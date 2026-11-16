@@ -40,5 +40,12 @@
     "category": "AI",
     "description": "Summarise any text with TextRank: PageRank over a sentence-similarity graph, with per-sentence centrality scores, entirely in the browser.",
     "date": "2026-11-15"
+  },
+  {
+    "slug": "email-header-analyzer",
+    "title": "Email Header Analyzer (SPF/DKIM/DMARC)",
+    "category": "Cybersecurity",
+    "description": "Paste raw email headers to check SPF/DKIM/DMARC results, spoofing and phishing indicators and the forensic delivery path, entirely in the browser.",
+    "date": "2026-11-16"
   }
 ]
