@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Email Header Analyzer (SPF/DKIM/DMARC)</title>
+<meta name="description" content="Paste raw email headers to check SPF/DKIM/DMARC results, spoofing signs and the delivery path — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Email Header Analyzer</h1>
+<p class="sub">Paste raw message headers (Gmail: “Show original”). Parsed locally — nothing is uploaded.</p>
+<label for="hdr">Raw headers</label>
+<textarea id="hdr" spellcheck="false" autocomplete="off" placeholder="Received: from ...&#10;Authentication-Results: ...&#10;From: ..."></textarea>
+<div class="row" role="group" aria-label="Example messages">
+  <button class="primary" id="go">Analyze</button>
+  <button data-ex="legit">Example: legitimate</button>
+  <button data-ex="phish">Example: phishing</button>
+  <button data-ex="forged">Example: forged timestamps</button>
+</div>
+<div id="out" aria-live="polite"></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
