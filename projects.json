@@ -47,5 +47,12 @@
     "category": "Cybersecurity",
     "description": "Paste raw email headers to check SPF/DKIM/DMARC results, spoofing and phishing indicators and the forensic delivery path, entirely in the browser.",
     "date": "2026-11-16"
+  },
+  {
+    "slug": "kmeans-clustering-lab",
+    "title": "K-Means Clustering Lab",
+    "category": "AI",
+    "description": "Step through k-means clustering interactively, compare random vs k-means++ initialisation and pick k with the elbow method and silhouette score.",
+    "date": "2026-11-17"
   }
 ]
