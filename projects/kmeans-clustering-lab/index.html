@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>K-Means Clustering Lab</title>
+<meta name="description" content="Step through k-means clustering interactively: click to add points, compare random vs k-means++ initialisation, and find k with the elbow method and silhouette score.">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>K-Means Clustering Lab</h1>
+<p class="sub">Watch Lloyd's algorithm assign points and move centroids one step at a time. Click the canvas to add your own points. Everything runs locally in your browser.</p>
+<div class="layout">
+  <div>
+    <canvas id="cv" role="img" aria-label="Scatter plot of data points coloured by cluster; click to add points"></canvas>
+  </div>
+  <div>
+    <div class="card" style="margin-top:0">
+      <h2>Controls</h2>
+      <div class="ctl">
+        <div><label for="k">Clusters k: <span id="kv">3</span></label><input id="k" type="range" min="1" max="8" value="3"></div>
+        <div><label for="init">Initialisation</label><select id="init"><option value="kmeans++">k-means++</option><option value="random">Random points</option></select></div>
+        <div><label for="count">Points</label><select id="count"><option>60</option><option selected>120</option><option>240</option></select></div>
+      </div>
+      <div class="row" role="group" aria-label="Datasets">
+        <button data-ds="blobs">Blobs</button><button data-ds="moons">Moons</button><button data-ds="rings">Rings</button><button data-ds="uniform">Uniform</button><button id="clear">Clear</button>
+      </div>
+      <div class="row">
+        <button id="initBtn">Initialise</button><button class="primary" id="step">Step</button><button id="run">Run</button><button id="elbowBtn">Elbow plot</button>
+      </div>
+      <p id="status" class="d" aria-live="polite"></p>
+    </div>
+    <div class="card">
+      <div class="stats">
+        <div class="stat"><span class="d">Iteration</span><b id="iter">0</b></div>
+        <div class="stat"><span class="d">Points</span><b id="n">0</b></div>
+        <div class="stat"><span class="d">Inertia (SSE)</span><b id="inertia">–</b></div>
+        <div class="stat"><span class="d">Silhouette</span><b id="sil">–</b></div>
+      </div>
+    </div>
+    <div class="card"><svg id="elbow" viewBox="0 0 300 160" role="img" aria-label="Elbow plot of inertia against k"></svg></div>
+  </div>
+</div>
+<div class="card">
+  <h2>Try this</h2>
+  <ul>
+    <li>Load <b>Blobs</b>, k=3: it converges in a few steps and silhouette is high. Run the elbow plot — the bend is at k=3.</li>
+    <li>Load <b>Moons</b> or <b>Rings</b>: k-means cannot separate non-convex shapes, whatever k you choose.</li>
+    <li>Switch to <b>Random</b> initialisation and press Initialise repeatedly: poor starts can land in worse local optima than k-means++.</li>
+  </ul>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+canvas{width:100%;max-width:640px;aspect-ratio:1;background:#0b0f14;border:1px solid var(--line);border-radius:10px;cursor:crosshair;touch-action:none;display:block}
+.layout{display:grid;grid-template-columns:minmax(0,640px) 1fr;gap:1rem;align-items:start}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+select{background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.4rem;font:inherit}
+.ctl{display:flex;flex-wrap:wrap;gap:.8rem;align-items:end}.ctl label{margin:0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.stat{background:#0d1117;border:1px solid var(--line);border-radius:8px;padding:.5rem}
+.stat b{display:block;font-size:1.3rem}
+svg{width:100%;height:auto;background:#0b0f14;border:1px solid var(--line);border-radius:8px}
