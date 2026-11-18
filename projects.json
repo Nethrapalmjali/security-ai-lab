@@ -54,5 +54,12 @@
     "category": "AI",
     "description": "Step through k-means clustering interactively, compare random vs k-means++ initialisation and pick k with the elbow method and silhouette score.",
     "date": "2026-11-17"
+  },
+  {
+    "slug": "totp-lab",
+    "title": "TOTP / HOTP Lab",
+    "category": "Cybersecurity",
+    "description": "Generate and verify RFC 6238 one-time passwords with Web Crypto, audit 2FA settings and build otpauth:// URIs, entirely in the browser.",
+    "date": "2026-11-18"
   }
 ]
