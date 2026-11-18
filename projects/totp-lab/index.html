@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOTP / HOTP Lab</title>
+<meta name="description" content="Generate and verify RFC 6238 time-based one-time passwords with Web Crypto, audit your 2FA config and build otpauth:// URIs — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>TOTP / HOTP Lab</h1>
+<p class="sub">See how authenticator-app codes work. Implements RFC 4226/6238 with the Web Crypto API; nothing leaves your browser. Don't paste real account secrets — use the demo ones.</p>
+
+<section class="card">
+  <h2>Generator</h2>
+  <label for="secret">Base32 secret</label>
+  <input id="secret" type="text" autocomplete="off" spellcheck="false" value="JBSWY3DPEHPK3PXP">
+  <div class="row" role="group" aria-label="Secret presets">
+    <button id="rand">Generate random 160-bit secret</button>
+    <button id="demo">Demo secret</button>
+    <button id="rfc">RFC 6238 test secret (SHA-1)</button>
+  </div>
+  <div class="grid">
+    <div><label for="algo">Algorithm</label><select id="algo"><option>SHA1</option><option>SHA256</option><option>SHA512</option></select></div>
+    <div><label for="digits">Digits</label><select id="digits"><option>6</option><option>7</option><option>8</option></select></div>
+    <div><label for="period">Period (s)</label><input id="period" type="number" min="1" max="300" value="30"></div>
+    <div><label for="time">Time (Unix s, blank = now)</label><input id="time" type="text" inputmode="numeric" placeholder="live"></div>
+  </div>
+  <div class="code" id="code" aria-live="off">------</div>
+  <div class="bar" role="progressbar" aria-label="Seconds until code changes" aria-valuemin="0" aria-valuemax="30"><div id="fill"></div></div>
+  <p id="remain" class="muted"></p>
+  <p id="err" class="err" role="alert"></p>
+  <details><summary>Show the maths</summary><pre id="math"></pre></details>
+</section>
+
+<section class="card">
+  <h2>Verifier</h2>
+  <label for="entered">Code to verify</label>
+  <input id="entered" type="text" inputmode="numeric" autocomplete="off" maxlength="8">
+  <label for="win">Accepted drift window (± steps)</label>
+  <select id="win"><option>0</option><option selected>1</option><option>2</option><option>5</option></select>
+  <div class="row"><button class="primary" id="verify">Verify</button></div>
+  <p id="vmsg" aria-live="polite"></p>
+</section>
+
+<section class="card">
+  <h2>Configuration audit</h2>
+  <ul id="audit"></ul>
+</section>
+
+<section class="card">
+  <h2>otpauth:// URI</h2>
+  <div class="grid"><div><label for="issuer">Issuer</label><input id="issuer" value="Acme Corp"></div>
+  <div><label for="account">Account</label><input id="account" value="alice@example.com"></div></div>
+  <label for="uri">URI (paste one to import it)</label>
+  <textarea id="uri" spellcheck="false"></textarea>
+  <div class="row"><button id="import">Import URI into generator</button></div>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
