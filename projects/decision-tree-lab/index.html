@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision Tree Lab</title>
+<meta name="description" content="Train a CART decision tree on your own CSV in the browser: visual tree, rules, feature importance, test accuracy and a what-if predictor.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Decision Tree Lab</h1>
+<p class="sub">Paste a CSV, pick the column to predict, and watch a CART tree learn explainable rules. Runs 100% in your browser; nothing is uploaded.</p>
+
+<section class="panel">
+  <label for="csv">CSV data (first row = headers)</label>
+  <textarea id="csv" spellcheck="false" rows="9"></textarea>
+  <div class="row">
+    <button data-ex="phish">Example: phishing emails</button>
+    <button data-ex="iris">Example: flowers (numeric)</button>
+    <button data-ex="login">Example: suspicious logins</button>
+    <label class="file">Load .csv file <input type="file" id="file" accept=".csv,text/csv"></label>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="grid">
+    <div><label for="target">Column to predict</label><select id="target"></select></div>
+    <div><label for="crit">Split criterion</label><select id="crit"><option value="gini">Gini impurity</option><option value="entropy">Entropy (information gain)</option></select></div>
+    <div><label for="depth">Max depth: <output id="dv">4</output></label><input type="range" id="depth" min="1" max="8" value="4"></div>
+    <div><label for="leaf">Min samples per leaf: <output id="lv">1</output></label><input type="range" id="leaf" min="1" max="10" value="1"></div>
+    <div><label for="test">Test split: <output id="tv">25</output>%</label><input type="range" id="test" min="0" max="50" step="5" value="25"></div>
+  </div>
+  <button class="primary" id="go">Train tree</button>
+  <p id="err" role="alert" class="err"></p>
+</section>
+
+<div id="out" hidden>
+  <section class="panel" aria-live="polite"><h2>Result</h2><div id="stats" class="stats"></div></section>
+  <section class="panel"><h2>Tree</h2><div id="tree" class="treewrap" tabindex="0" aria-label="Decision tree diagram"></div>
+    <p class="sub">Each box: split rule (yes = left, no = right), class counts and impurity. Leaves are coloured by predicted class.</p></section>
+  <section class="panel"><h2>Rules</h2><pre id="rules"></pre></section>
+  <section class="panel"><h2>Feature importance</h2><div id="imp"></div></section>
+  <section class="panel"><h2>What-if prediction</h2><div id="form" class="grid"></div><button id="pred">Predict</button><p id="predout" aria-live="polite"></p></section>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+:root{--bg:#0d1117;--p:#161b22;--b:#30363d;--t:#e6edf3;--m:#8b949e;--a:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.5 system-ui,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}
+a{color:var(--a)}h1{margin:.3em 0}h2{margin:0 0 .6em;font-size:1.15rem}
+.sub{color:var(--m);font-size:.9rem}
+.panel{background:var(--p);border:1px solid var(--b);border-radius:8px;padding:14px;margin:14px 0}
+label{display:block;font-weight:600;margin:6px 0 4px;font-size:.9rem}
+textarea,select,input[type=number],input[type=text]{width:100%;background:#0d1117;color:var(--t);border:1px solid var(--b);border-radius:6px;padding:8px;font:inherit}
+textarea{font-family:ui-monospace,monospace;font-size:.85rem}
+button,.file{background:#21262d;color:var(--t);border:1px solid var(--b);border-radius:6px;padding:8px 12px;cursor:pointer;font:inherit;display:inline-block;margin:6px 6px 0 0}
+.file{font-weight:400}.file input{display:none}
+button.primary{background:#238636;border-color:#2ea043}
+button:hover,.file:hover{filter:brightness(1.2)}
+:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+input[type=range]{width:100%}
+.err{color:#ff7b72;min-height:1.2em;margin:.5em 0 0}
+.stats{display:flex;flex-wrap:wrap;gap:12px}
+.stat{background:#0d1117;border:1px solid var(--b);border-radius:6px;padding:8px 14px}
+.stat b{display:block;font-size:1.4rem}.stat span{color:var(--m);font-size:.8rem}
+.treewrap{overflow:auto;border:1px solid var(--b);border-radius:6px;background:#0d1117;padding:8px}
+.treewrap svg{display:block;margin:auto}
+pre{white-space:pre-wrap;background:#0d1117;border:1px solid var(--b);border-radius:6px;padding:10px;font-size:.82rem;margin:0}
+.bar{display:flex;align-items:center;gap:8px;margin:4px 0}
+.bar .n{width:30%;min-width:90px;overflow-wrap:anywhere}.bar .f{height:12px;background:var(--a);border-radius:3px}
+.bar .v{color:var(--m);font-size:.85rem}
+#predout{font-weight:600}
