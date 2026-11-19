@@ -61,5 +61,12 @@
     "category": "Cybersecurity",
     "description": "Generate and verify RFC 6238 one-time passwords with Web Crypto, audit 2FA settings and build otpauth:// URIs, entirely in the browser.",
     "date": "2026-11-18"
+  },
+  {
+    "slug": "decision-tree-lab",
+    "title": "Decision Tree Lab",
+    "category": "AI",
+    "description": "Train an explainable CART decision tree on your own CSV with a visual tree, rules, feature importance and what-if predictions, entirely in the browser.",
+    "date": "2026-11-19"
   }
 ]

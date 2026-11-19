@@ -16,6 +16,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[Email Header Analyzer (SPF/DKIM/DMARC)](projects/email-header-analyzer/)** — Paste raw email headers to check SPF/DKIM/DMARC results, spoofing and phishing indicators and the forensic delivery path, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/email-header-analyzer/)
 - **[K-Means Clustering Lab](projects/kmeans-clustering-lab/)** — Step through k-means clustering interactively, compare random vs k-means++ initialisation and pick k with the elbow method and silhouette score. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/kmeans-clustering-lab/)
 - **[TOTP / HOTP Lab](projects/totp-lab/)** — Generate and verify RFC 6238 one-time passwords with Web Crypto, audit 2FA settings and build otpauth:// URIs, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/totp-lab/)
+- **[Decision Tree Lab](projects/decision-tree-lab/)** — Train an explainable CART decision tree on your own CSV with a visual tree, rules, feature importance and what-if predictions, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/decision-tree-lab/)
 <!-- PROJECTS:END -->
 
 ## Structure
