@@ -17,6 +17,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[K-Means Clustering Lab](projects/kmeans-clustering-lab/)** — Step through k-means clustering interactively, compare random vs k-means++ initialisation and pick k with the elbow method and silhouette score. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/kmeans-clustering-lab/)
 - **[TOTP / HOTP Lab](projects/totp-lab/)** — Generate and verify RFC 6238 one-time passwords with Web Crypto, audit 2FA settings and build otpauth:// URIs, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/totp-lab/)
 - **[Decision Tree Lab](projects/decision-tree-lab/)** — Train an explainable CART decision tree on your own CSV with a visual tree, rules, feature importance and what-if predictions, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/decision-tree-lab/)
+- **[Classical Cipher Cryptanalysis Lab](projects/classical-cipher-lab/)** — Encrypt and then break Caesar, Vigenère and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/classical-cipher-lab/)
 <!-- PROJECTS:END -->
 
 ## Structure

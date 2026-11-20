@@ -68,5 +68,12 @@
     "category": "AI",
     "description": "Train an explainable CART decision tree on your own CSV with a visual tree, rules, feature importance and what-if predictions, entirely in the browser.",
     "date": "2026-11-19"
+  },
+  {
+    "slug": "classical-cipher-lab",
+    "title": "Classical Cipher Cryptanalysis Lab",
+    "category": "Cybersecurity",
+    "description": "Encrypt and then break Caesar, Vigenère and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser.",
+    "date": "2026-11-20"
   }
 ]
