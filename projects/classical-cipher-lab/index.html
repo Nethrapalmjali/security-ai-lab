@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classical Cipher Cryptanalysis Lab</title>
+<meta name="description" content="Encrypt, then break Caesar, Vigenère and XOR ciphers using frequency analysis, index of coincidence, Kasiski and Hamming distance — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Classical Cipher Cryptanalysis Lab</h1>
+<p class="sub">Encrypt with Caesar, Vigenère or XOR — then watch statistics break them with no key. Educational only; these ciphers are not secure. Nothing leaves your browser.</p>
+
+<div class="tabs" role="tablist" aria-label="Cipher">
+  <button role="tab" id="t-caesar" aria-selected="true" data-tab="caesar">Caesar</button>
+  <button role="tab" id="t-vig" aria-selected="false" data-tab="vig">Vigenère</button>
+  <button role="tab" id="t-xor" aria-selected="false" data-tab="xor">XOR</button>
+</div>
+
+<section class="card" id="p-caesar" role="tabpanel" aria-labelledby="t-caesar">
+  <h2>Caesar</h2>
+  <label for="c-in">Text</label>
+  <textarea id="c-in" rows="4">Wkh txlfn eurzq ira mxpsv ryhu wkh odcb grj. Dwwdfn dw gdzq, wkh whdp zdv uhdgb wr ghixqfwlrq ri wkh ghihqvhv.</textarea>
+  <label for="c-shift">Shift (for manual encrypt / decrypt)</label>
+  <input id="c-shift" type="number" min="-25" max="25" value="3">
+  <div class="row">
+    <button id="c-enc">Encrypt</button><button id="c-dec">Decrypt</button>
+    <button class="primary" id="c-break">Break it (no key)</button>
+    <button id="c-ex">Load new example</button>
+  </div>
+  <div id="c-out" class="out" aria-live="polite"></div>
+  <div id="c-cands"></div>
+</section>
+
+<section class="card" id="p-vig" role="tabpanel" aria-labelledby="t-vig" hidden>
+  <h2>Vigenère</h2>
+  <label for="v-in">Text</label>
+  <textarea id="v-in" rows="5"></textarea>
+  <label for="v-key">Key (letters)</label>
+  <input id="v-key" type="text" value="CRYPTO" autocomplete="off" spellcheck="false">
+  <div class="row">
+    <button id="v-enc">Encrypt</button><button id="v-dec">Decrypt with key</button>
+    <button class="primary" id="v-break">Break it (no key)</button>
+    <button id="v-ex">Load example plaintext</button>
+  </div>
+  <label for="v-len">Key length override (blank = auto)</label>
+  <input id="v-len" type="number" min="1" max="30" placeholder="auto">
+  <p id="v-err" class="err" role="alert"></p>
+  <div id="v-out" class="out" aria-live="polite"></div>
+  <div id="v-report"></div>
+</section>
+
+<section class="card" id="p-xor" role="tabpanel" aria-labelledby="t-xor" hidden>
+  <h2>XOR</h2>
+  <label for="x-in">Ciphertext as hex (or type plaintext and press Encrypt)</label>
+  <textarea id="x-in" rows="4"></textarea>
+  <label for="x-key">Key (text, for encrypt)</label>
+  <input id="x-key" type="text" value="ICE" autocomplete="off" spellcheck="false">
+  <div class="row">
+    <button id="x-enc">Encrypt text → hex</button>
+    <button class="primary" id="x-break1">Break single-byte key</button>
+    <button class="primary" id="x-breakn">Break repeating key</button>
+    <button id="x-ex">Load example</button>
+  </div>
+  <p id="x-err" class="err" role="alert"></p>
+  <div id="x-out" class="out" aria-live="polite"></div>
+  <div id="x-report"></div>
+</section>
+
+<section class="card">
+  <h2>How it works</h2>
+  <ul>
+    <li><b>Caesar</b>: only 26 keys. Each is scored with a chi-squared distance from English letter frequencies.</li>
+    <li><b>Vigenère</b>: the index of coincidence (≈0.067 English, ≈0.038 random) of every n-th letter reveals the key length; each column is then a Caesar cipher. Kasiski examination of repeated trigrams gives a second opinion.</li>
+    <li><b>XOR</b>: single-byte keys are brute-forced and scored; repeating keys use normalised Hamming distance to find the key size.</li>
+  </ul>
+  <p class="muted">Short texts (under ~100 letters) give unreliable statistics — that is a real limitation of the attack.</p>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
