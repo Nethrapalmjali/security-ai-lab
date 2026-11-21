@@ -75,5 +75,12 @@
     "category": "Cybersecurity",
     "description": "Encrypt and then break Caesar, Vigenère and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser.",
     "date": "2026-11-20"
+  },
+  {
+    "slug": "bpe-tokenizer-lab",
+    "title": "BPE Tokenizer Lab",
+    "category": "AI",
+    "description": "Train a byte-level Byte Pair Encoding tokenizer on your own text and watch it merge into LLM-style tokens, entirely in the browser.",
+    "date": "2026-11-21"
   }
 ]
