@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BPE Tokenizer Lab</title>
+<meta name="description" content="Train a byte-level Byte Pair Encoding tokenizer in your browser and watch text collapse into tokens as merges are learned.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>BPE Tokenizer Lab</h1>
+<p class="sub">LLMs don't read characters, they read tokens. Train a byte-level Byte Pair Encoding tokenizer (the GPT-2 family algorithm) on your own text, then drag the slider to see tokens form merge by merge. Nothing leaves your browser.</p>
+
+<label for="corpus">1. Training corpus</label>
+<textarea id="corpus" spellcheck="false"></textarea>
+<div class="row">
+  <label for="nm" style="margin:0">Max merges:</label>
+  <input id="nm" type="number" min="0" max="2000" value="60" style="width:5em">
+  <button class="primary" id="train">Train tokenizer</button>
+  <button data-ex="0">Example: prose</button>
+  <button data-ex="1">Example: security logs</button>
+  <button data-ex="2">Example: code</button>
+</div>
+<p id="status" class="sub" aria-live="polite"></p>
+
+<section id="lab" hidden>
+<label for="inp">2. Text to tokenize (try words the corpus never saw, emoji, other languages)</label>
+<textarea id="inp" spellcheck="false" style="min-height:80px"></textarea>
+<div class="row">
+  <label for="k" style="margin:0">Merges applied: <output id="kv">0</output></label>
+  <input id="k" type="range" min="0" max="0" value="0" style="flex:1;min-width:160px">
+  <button id="play">▶ Play</button>
+</div>
+<div class="panel"><strong>Tokens</strong>
+  <div id="tokens" class="tokens" aria-live="polite"></div>
+  <div class="stats" id="stats"></div>
+  <p class="sub" id="rt"></p>
+</div>
+<div class="panel"><strong>Token IDs</strong><p id="ids" class="mono"></p></div>
+<div class="panel"><strong>Learned merges</strong> <span class="sub">(most frequent adjacent pair first; the highlighted ones are applied)</span>
+  <table id="mt"><thead><tr><th>#</th><th>Token</th><th>Made of</th><th>Count</th></tr></thead><tbody></tbody></table>
+</div>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
