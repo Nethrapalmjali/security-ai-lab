@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phishing URL Analyzer</title>
+<meta name="description" content="Static heuristic analysis of suspicious URLs: typosquatting, homographs, obfuscated IPs, @ tricks and more — entirely in your browser, never visits the link.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Phishing URL Analyzer</h1>
+<p class="sub">Paste a suspicious link to score it with static heuristics. The URL is <strong>never fetched or opened</strong> and nothing leaves your browser.</p>
+<label for="url">URL</label>
+<input id="url" type="text" spellcheck="false" autocomplete="off" placeholder="https://paypal.com.secure-login.example/verify">
+<div class="row" role="group" aria-label="Example URLs">
+  <button class="primary" id="analyze">Analyze</button>
+  <button data-ex="http://paypa1.com/login">Typosquat</button>
+  <button data-ex="https://paypal.com.secure-verify.xyz/signin">Brand in subdomain</button>
+  <button data-ex="https://www.google.com@evil.example.net/">@ trick</button>
+  <button data-ex="http://3232235777/bank/login">Obfuscated IP</button>
+  <button data-ex="https://xn--pypal-4ve.com/">Homograph</button>
+  <button data-ex="https://github.com/anthropics">Legitimate</button>
+</div>
+<div id="out" aria-live="polite"></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
