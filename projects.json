@@ -82,5 +82,12 @@
     "category": "AI",
     "description": "Train a byte-level Byte Pair Encoding tokenizer on your own text and watch it merge into LLM-style tokens, entirely in the browser.",
     "date": "2026-11-21"
+  },
+  {
+    "slug": "phishing-url-analyzer",
+    "title": "Phishing URL Analyzer",
+    "category": "Cybersecurity",
+    "description": "Score suspicious links for typosquatting, homograph, obfuscated-IP and @-trick phishing tricks with explainable static heuristics, entirely in the browser.",
+    "date": "2026-11-22"
   }
 ]

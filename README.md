@@ -19,6 +19,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[Decision Tree Lab](projects/decision-tree-lab/)** — Train an explainable CART decision tree on your own CSV with a visual tree, rules, feature importance and what-if predictions, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/decision-tree-lab/)
 - **[Classical Cipher Cryptanalysis Lab](projects/classical-cipher-lab/)** — Encrypt and then break Caesar, Vigenère and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/classical-cipher-lab/)
 - **[BPE Tokenizer Lab](projects/bpe-tokenizer-lab/)** — Train a byte-level Byte Pair Encoding tokenizer on your own text and watch it merge into LLM-style tokens, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/bpe-tokenizer-lab/)
+- **[Phishing URL Analyzer](projects/phishing-url-analyzer/)** — Score suspicious links for typosquatting, homograph, obfuscated-IP and @-trick phishing tricks with explainable static heuristics, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/phishing-url-analyzer/)
 <!-- PROJECTS:END -->
 
 ## Structure
