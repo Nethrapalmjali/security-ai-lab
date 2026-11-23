@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neural Network Playground</title>
+<meta name="description" content="Train a neural network from scratch in your browser and watch the decision boundary evolve. Backpropagation in plain JavaScript.">
+<link rel="stylesheet" href="base.css">
+<style>
+canvas{width:100%;max-width:520px;height:auto;aspect-ratio:1;background:#0b0f14;border:1px solid var(--line);border-radius:8px;display:block}
+select{width:100%;background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.5rem;font:inherit}
+.chk{display:flex;flex-wrap:wrap;gap:.4rem .9rem}.chk label{display:inline-flex;gap:.3rem;align-items:center;font-weight:400;margin:0}.chk input{width:auto}
+.stats{font:14px ui-monospace,monospace;color:var(--mut)}
+input[type=range]{padding:0}
+</style>
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Neural Network Playground</h1>
+<p class="sub">A multilayer perceptron trained with backpropagation, written from scratch in vanilla JS. Pick a dataset, shape the network, and watch the decision boundary form. Nothing leaves your browser.</p>
+<div class="card"><div class="grid">
+ <div>
+  <canvas id="cv" width="520" height="520" role="img" aria-label="Decision boundary: background colour shows the network's prediction, dots are training (solid) and test (hollow) points."></canvas>
+  <p class="d">Blue = class 1, orange = class 0. Hollow dots are held-out test points.</p>
+  <canvas id="lc" width="520" height="120" role="img" aria-label="Loss curves for train and test" style="aspect-ratio:520/120;margin-top:.5rem"></canvas>
+ </div>
+ <div>
+  <label for="ds">Dataset</label>
+  <select id="ds"><option value="circle">Circle</option><option value="xor">XOR</option><option value="spiral">Spiral</option><option value="blobs">Two blobs (linear)</option></select>
+  <label for="noise">Noise: <output id="nv">0.05</output></label>
+  <input id="noise" type="range" min="0" max="0.25" step="0.01" value="0.05">
+  <label for="layers">Hidden layers (neurons, comma-separated)</label>
+  <input id="layers" value="6,4" inputmode="text" maxlength="20">
+  <label for="act">Activation</label>
+  <select id="act"><option>tanh</option><option>relu</option><option>sigmoid</option><option>linear</option></select>
+  <label for="lr">Learning rate: <output id="lv">0.3</output></label>
+  <input id="lr" type="range" min="0.01" max="1" step="0.01" value="0.3">
+  <label for="l2">L2 regularisation: <output id="l2v">0</output></label>
+  <input id="l2" type="range" min="0" max="0.02" step="0.001" value="0">
+  <fieldset style="border:1px solid var(--line);border-radius:8px;margin:.6rem 0"><legend>Input features</legend>
+   <div class="chk" id="feats"></div></fieldset>
+  <div class="row"><button class="primary" id="play" aria-pressed="false">Train</button><button id="step">Step ×50</button><button id="reset">Reset</button></div>
+  <div id="stats" class="stats" aria-live="polite"></div>
+ </div>
+</div></div>
+<div class="card"><h2>Try it</h2>
+<p class="d">Spiral with only x, y needs a bigger network (try 8,8,4). Circle with only x² and y² features is solved by a single neuron (set layers empty). XOR with a linear activation fails — that's the point of non-linearity.</p>
+<div class="row"><button data-p="circle|6,4|tanh|x,y">Circle, 6-4 tanh</button><button data-p="xor|4|tanh|x,y">XOR, 4 tanh</button><button data-p="xor|4|linear|x,y">XOR, linear (fails)</button><button data-p="spiral|8,8,4|tanh|x,y,sinx,siny">Spiral, 8-8-4</button><button data-p="circle||tanh|x2,y2">Circle, no hidden layer</button></div></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
