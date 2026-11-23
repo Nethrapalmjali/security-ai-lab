@@ -73,7 +73,7 @@
     "slug": "classical-cipher-lab",
     "title": "Classical Cipher Cryptanalysis Lab",
     "category": "Cybersecurity",
-    "description": "Encrypt and then break Caesar, Vigenère and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser.",
+    "description": "Encrypt and then break Caesar, Vigen\u00e8re and XOR ciphers with frequency analysis, index of coincidence, Kasiski and Hamming distance, entirely in the browser.",
     "date": "2026-11-20"
   },
   {
@@ -89,5 +89,12 @@
     "category": "Cybersecurity",
     "description": "Score suspicious links for typosquatting, homograph, obfuscated-IP and @-trick phishing tricks with explainable static heuristics, entirely in the browser.",
     "date": "2026-11-22"
+  },
+  {
+    "slug": "neural-net-playground",
+    "title": "Neural Network Playground",
+    "category": "AI",
+    "description": "Train a neural network from scratch with backpropagation and watch the decision boundary evolve on circle, XOR and spiral data, entirely in the browser.",
+    "date": "2026-11-23"
   }
 ]
