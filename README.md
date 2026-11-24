@@ -21,6 +21,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[BPE Tokenizer Lab](projects/bpe-tokenizer-lab/)** — Train a byte-level Byte Pair Encoding tokenizer on your own text and watch it merge into LLM-style tokens, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/bpe-tokenizer-lab/)
 - **[Phishing URL Analyzer](projects/phishing-url-analyzer/)** — Score suspicious links for typosquatting, homograph, obfuscated-IP and @-trick phishing tricks with explainable static heuristics, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/phishing-url-analyzer/)
 - **[Neural Network Playground](projects/neural-net-playground/)** — Train a neural network from scratch with backpropagation and watch the decision boundary evolve on circle, XOR and spiral data, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/neural-net-playground/)
+- **[CIDR Subnet Lab](projects/cidr-lab/)** — Calculate IPv4 subnets, split and summarise ranges and audit firewall allow-lists for over-broad or redundant rules, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/cidr-lab/)
 <!-- PROJECTS:END -->
 
 ## Structure

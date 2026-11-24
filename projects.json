@@ -96,5 +96,12 @@
     "category": "AI",
     "description": "Train a neural network from scratch with backpropagation and watch the decision boundary evolve on circle, XOR and spiral data, entirely in the browser.",
     "date": "2026-11-23"
+  },
+  {
+    "slug": "cidr-lab",
+    "title": "CIDR Subnet Lab",
+    "category": "Cybersecurity",
+    "description": "Calculate IPv4 subnets, split and summarise ranges and audit firewall allow-lists for over-broad or redundant rules, entirely in the browser.",
+    "date": "2026-11-24"
   }
 ]
