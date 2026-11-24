@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CIDR Subnet Lab</title>
+<meta name="description" content="IPv4 CIDR calculator, subnet splitter, route summariser and firewall-rule auditor that spots overlaps, redundancy and over-broad allow rules — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>CIDR Subnet Lab</h1>
+<p class="sub">Calculate subnets, split and summarise ranges, and audit firewall/security-group allow-lists for over-broad or redundant rules. Pure client-side IPv4 maths; nothing is sent anywhere.</p>
+
+<section class="card">
+  <h2>Subnet calculator</h2>
+  <label for="cidr">IPv4 address with prefix (CIDR)</label>
+  <input id="cidr" type="text" value="192.168.1.77/24" autocomplete="off" spellcheck="false">
+  <div class="row" role="group" aria-label="Examples">
+    <button data-ex="10.0.0.0/8">10.0.0.0/8</button>
+    <button data-ex="172.16.5.9/20">172.16.5.9/20</button>
+    <button data-ex="169.254.169.254/32">Cloud metadata IP</button>
+    <button data-ex="8.8.8.0/24">Public /24</button>
+    <button data-ex="10.1.1.0/31">/31 point-to-point</button>
+  </div>
+  <p id="err" class="err" role="alert"></p>
+  <table id="out" aria-live="polite"></table>
+  <label for="check">Is this IP inside the network?</label>
+  <input id="check" type="text" placeholder="192.168.1.200" autocomplete="off" spellcheck="false">
+  <p id="chkmsg" aria-live="polite"></p>
+</section>
+
+<section class="card">
+  <h2>Split into subnets</h2>
+  <label for="newp">New prefix length</label>
+  <input id="newp" type="number" min="0" max="32" value="26">
+  <p id="splitmsg" class="muted" aria-live="polite"></p>
+  <ul id="splitout" class="list bits"></ul>
+</section>
+
+<section class="card">
+  <h2>IP range → minimal CIDR blocks</h2>
+  <div class="grid">
+    <div><label for="rs">Start IP</label><input id="rs" value="10.0.0.1"></div>
+    <div><label for="re">End IP</label><input id="re" value="10.0.0.6"></div>
+  </div>
+  <p id="rmsg" class="bits" aria-live="polite"></p>
+</section>
+
+<section class="card">
+  <h2>Allow-list auditor &amp; route summariser</h2>
+  <p class="muted">One CIDR or IP per line (<code>#</code> comments allowed). Finds 0.0.0.0/0, huge ranges, duplicates, redundant rules and host bits, then shows the minimal equivalent list.</p>
+  <label for="rules">Rules</label>
+  <textarea id="rules" rows="9" spellcheck="false"></textarea>
+  <div class="row"><button class="primary" id="run">Audit</button><button id="sample">Load sample</button></div>
+  <ul id="findings" class="list" aria-live="polite"></ul>
+  <h3>Minimal equivalent list</h3>
+  <pre id="summary"></pre>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
