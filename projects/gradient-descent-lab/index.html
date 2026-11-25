@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gradient Descent Optimizer Race</title>
+<meta name="description" content="Race SGD, Momentum, Nesterov, AdaGrad, RMSProp and Adam across classic loss surfaces and watch how each one moves. Pure JavaScript, runs in your browser.">
+<link rel="stylesheet" href="base.css">
+<style>
+canvas{width:100%;max-width:560px;height:auto;aspect-ratio:1;background:#0b0f14;border:1px solid var(--line);border-radius:8px;display:block;cursor:crosshair}
+select{width:100%;background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.5rem;font:inherit}
+.opt{display:grid;grid-template-columns:auto 1fr 6.5rem;gap:.5rem;align-items:center;margin:.3rem 0}
+.opt label{margin:0;font-weight:400;display:flex;align-items:center;gap:.4rem}
+.opt input[type=checkbox]{width:auto}
+.dot{display:inline-block;width:.8rem;height:.8rem;border-radius:50%}
+table{width:100%;border-collapse:collapse;font:13px ui-monospace,monospace}
+th,td{text-align:left;padding:.3rem .4rem;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-weight:600}
+input[type=range]{padding:0}
+.grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.tblwrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Gradient Descent Optimizer Race</h1>
+<p class="sub">Six optimisers start from the same point on a 2-D loss surface. Watch SGD zig-zag, Momentum overshoot and Adam adapt — the same update rules that train real neural networks, written from scratch in vanilla JS. Nothing leaves your browser.</p>
+<div class="card"><div class="grid">
+ <div>
+  <canvas id="cv" width="560" height="560" role="img" aria-label="Loss surface heat map. Bright areas are high loss. Coloured trails show the path of each optimiser; white rings mark true minima. Click to choose a new start point."></canvas>
+  <p class="d" id="note"></p>
+  <p class="d">Click the surface to move the start point (white ✕). Darker = lower loss.</p>
+ </div>
+ <div>
+  <label for="surf">Loss surface</label>
+  <select id="surf"></select>
+  <h2 style="margin-top:.8rem">Optimisers &amp; learning rates</h2>
+  <div id="opts"></div>
+  <label for="beta">Momentum / β₁: <output id="bv">0.9</output></label>
+  <input id="beta" type="range" min="0" max="0.99" step="0.01" value="0.9">
+  <label for="speed">Steps per frame: <output id="sv">3</output></label>
+  <input id="speed" type="range" min="1" max="30" step="1" value="3">
+  <label style="display:flex;gap:.4rem;align-items:center;font-weight:400"><input id="clip" type="checkbox" style="width:auto"> Clip gradient norm to 5</label>
+  <div class="row"><button class="primary" id="play" aria-pressed="false">Run</button><button id="step">Step ×1</button><button id="reset">Reset</button><button id="defaults">Default rates</button></div>
+ </div>
+</div></div>
+<div class="card"><h2>Results</h2>
+ <div class="tblwrap"><table><thead><tr><th>Optimiser</th><th>Steps</th><th>Loss</th><th>Distance to nearest minimum</th><th>Status</th></tr></thead><tbody id="res" aria-live="polite"></tbody></table></div>
+</div>
+<div class="card"><h2>Try it</h2>
+<p class="d">Presets set a surface, start point and run. Then tweak learning rates to see what breaks.</p>
+<div class="row" id="presets">
+ <button data-p="bowl">Zig-zag on the bowl</button>
+ <button data-p="rosenbrock">Follow the Rosenbrock valley</button>
+ <button data-p="saddle">Escape a saddle point</button>
+ <button data-p="himmelblau">Himmelblau: pick your minimum</button>
+ <button data-p="rastrigin">Local-minimum trap</button>
+ <button data-p="explode">Learning rate too high</button>
+</div></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
