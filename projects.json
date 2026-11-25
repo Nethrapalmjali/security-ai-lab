@@ -103,5 +103,12 @@
     "category": "Cybersecurity",
     "description": "Calculate IPv4 subnets, split and summarise ranges and audit firewall allow-lists for over-broad or redundant rules, entirely in the browser.",
     "date": "2026-11-24"
+  },
+  {
+    "slug": "gradient-descent-lab",
+    "title": "Gradient Descent Optimizer Race",
+    "category": "AI",
+    "description": "Race SGD, Momentum, Nesterov, AdaGrad, RMSProp and Adam across classic loss surfaces and watch how each update rule behaves, entirely in the browser.",
+    "date": "2026-11-25"
   }
 ]
