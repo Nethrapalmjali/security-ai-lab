@@ -110,5 +110,12 @@
     "category": "AI",
     "description": "Race SGD, Momentum, Nesterov, AdaGrad, RMSProp and Adam across classic loss surfaces and watch how each update rule behaves, entirely in the browser.",
     "date": "2026-11-25"
+  },
+  {
+    "slug": "password-auditor",
+    "title": "Password Strength & Cracking-Time Auditor",
+    "category": "Cybersecurity",
+    "description": "Find dictionary, l33t, keyboard-walk and sequence patterns in a password and estimate cracking time under online and offline attacks, entirely in the browser.",
+    "date": "2026-11-26"
   }
 ]

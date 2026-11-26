@@ -23,6 +23,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[Neural Network Playground](projects/neural-net-playground/)** — Train a neural network from scratch with backpropagation and watch the decision boundary evolve on circle, XOR and spiral data, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/neural-net-playground/)
 - **[CIDR Subnet Lab](projects/cidr-lab/)** — Calculate IPv4 subnets, split and summarise ranges and audit firewall allow-lists for over-broad or redundant rules, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/cidr-lab/)
 - **[Gradient Descent Optimizer Race](projects/gradient-descent-lab/)** — Race SGD, Momentum, Nesterov, AdaGrad, RMSProp and Adam across classic loss surfaces and watch how each update rule behaves, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/gradient-descent-lab/)
+- **[Password Strength & Cracking-Time Auditor](projects/password-auditor/)** — Find dictionary, l33t, keyboard-walk and sequence patterns in a password and estimate cracking time under online and offline attacks, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/password-auditor/)
 <!-- PROJECTS:END -->
 
 ## Structure
