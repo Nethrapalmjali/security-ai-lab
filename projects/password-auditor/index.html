@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Password Strength &amp; Cracking-Time Auditor</title>
+<meta name="description" content="Pattern-aware password auditor: finds dictionary words, l33t, keyboard walks, sequences and years, then estimates cracking time. Runs entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Password Strength &amp; Cracking-Time Auditor</h1>
+<p class="sub">Finds the cheapest way an attacker would guess your password, not just its length. Everything runs locally; the password is never stored or transmitted. Still, don't paste a real one &mdash; try examples.</p>
+
+<section class="card">
+  <label for="pw">Password to audit</label>
+  <div class="pwrow"><input id="pw" type="password" autocomplete="off" spellcheck="false" value="P@ssw0rd2019"><button id="show" aria-pressed="false">Show</button></div>
+  <div class="row" role="group" aria-label="Examples">
+    <button data-ex="password">password</button>
+    <button data-ex="P@ssw0rd2019">P@ssw0rd2019</button>
+    <button data-ex="qwerty123456">qwerty123456</button>
+    <button data-ex="Summer2024!">Summer2024!</button>
+    <button data-ex="lantern-orbit-velvet-meadow-quartz">5-word passphrase</button>
+    <button data-ex="v9#Lq!2xZp@7Wm4k">random 16</button>
+  </div>
+  <div class="meter" id="meter" role="img" aria-label="Strength meter"><i></i><i></i><i></i><i></i><i></i></div>
+  <p><span class="big" id="label"></span> <span class="muted" id="bits"></span></p>
+  <p class="muted" id="naive"></p>
+</section>
+
+<section class="card">
+  <h2>How an attacker sees it</h2>
+  <p class="muted">Cheapest decomposition found. <span style="color:var(--bad)">Red</span> = wordlist/dictionary, <span style="color:var(--warn)">amber</span> = pattern, <span style="color:var(--ok)">green</span> = brute-force.</p>
+  <div id="segs" aria-live="polite"></div>
+  <h3>Advice</h3>
+  <ul id="tips" class="list"></ul>
+</section>
+
+<section class="card">
+  <h2>Estimated time to crack</h2>
+  <table id="times"></table>
+  <p class="muted">Average case (half the search space). Estimates assume the attacker knows common-password patterns; real rates depend on hardware and hash algorithm.</p>
+</section>
+
+<section class="card">
+  <h2>Generate a strong one</h2>
+  <p class="muted">Uses <code>crypto.getRandomValues</code> with rejection sampling (no modulo bias).</p>
+  <div class="row">
+    <button class="primary" id="genpp">5-word passphrase</button>
+    <button id="genpw">16-char random password</button>
+  </div>
+  <pre id="gen" aria-live="polite"></pre>
+  <button id="audit-gen" hidden>Audit this</button>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
