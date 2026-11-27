@@ -117,5 +117,12 @@
     "category": "Cybersecurity",
     "description": "Find dictionary, l33t, keyboard-walk and sequence patterns in a password and estimate cracking time under online and offline attacks, entirely in the browser.",
     "date": "2026-11-26"
+  },
+  {
+    "slug": "isolation-forest-lab",
+    "title": "Isolation Forest Anomaly Lab",
+    "category": "AI",
+    "description": "Detect anomalies and credential-stuffing patterns with an Isolation Forest built from scratch, with a live anomaly-score heat map and CSV import, entirely in the browser.",
+    "date": "2026-11-27"
   }
 ]
