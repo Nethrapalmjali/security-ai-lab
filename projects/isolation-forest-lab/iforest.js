@@ -90,7 +90,7 @@ export function scoreAll(model, X) { return X.map(x => score(model, x)); }
 export function threshold(scores, contamination) {
   if (!scores.length) return 1;
   const sorted = [...scores].sort((a, b) => b - a);
-  const k = Math.max(0, Math.min(sorted.length, Math.round(contamination * sorted.length)));
+  const k = Math.max(0, Math.min(sorted.length, Math.ceil(contamination * sorted.length - 1e-9)));
   if (k === 0) return Infinity;
   return sorted[k - 1];
 }
