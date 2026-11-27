@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Isolation Forest Anomaly Lab</title>
+<meta name="description" content="Detect anomalies with an Isolation Forest built from scratch: explore security-flavoured datasets, paste your own CSV and see the anomaly-score heat map. Runs entirely in your browser.">
+<link rel="stylesheet" href="base.css">
+<style>
+canvas{width:100%;max-width:560px;height:auto;aspect-ratio:1;background:#0b0f14;border:1px solid var(--line);border-radius:8px;display:block;cursor:crosshair}
+select{width:100%;background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.5rem;font:inherit}
+.ctl{display:grid;grid-template-columns:1fr 4rem;gap:.5rem;align-items:center;margin:.3rem 0}
+.ctl label{margin:0;font-weight:400}.ctl output{text-align:right;font:13px ui-monospace,monospace;color:var(--mut)}
+.ctl input{grid-column:1/-1;padding:0}
+.grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(6rem,1fr));gap:.5rem;margin:.6rem 0}
+.stat{background:#0d1117;border:1px solid var(--line);border-radius:8px;padding:.4rem .6rem}
+.stat b{display:block;font-size:1.25rem}.stat span{color:var(--mut);font-size:.8rem}
+table{width:100%;border-collapse:collapse;font:13px ui-monospace,monospace}
+th,td{text-align:left;padding:.25rem .4rem;border-bottom:1px solid var(--line)}th{color:var(--mut)}
+.tblwrap{overflow-x:auto;max-height:260px;overflow-y:auto}
+.leg{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin-top:.4rem}
+.leg i{display:inline-block;width:.8rem;height:.8rem;border-radius:50%;vertical-align:-1px;margin-right:.3rem}
+</style>
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Isolation Forest Anomaly Lab</h1>
+<p class="sub">Anomalies are few and different, so random splits isolate them in fewer steps. This lab grows a forest of random isolation trees from scratch, scores every point and paints the anomaly-score landscape — the unsupervised technique behind many fraud, intrusion and log-anomaly detectors. Nothing leaves your browser.</p>
+
+<div class="card"><div class="grid">
+ <div>
+  <canvas id="cv" width="560" height="560" role="img" aria-label="Scatter plot over an anomaly-score heat map. Warm background colours mean higher anomaly score. Red-ringed points are flagged as anomalies. Click to add a point."></canvas>
+  <div class="leg"><span><i style="background:#58a6ff"></i>normal</span><span><i style="background:#ff5d5d"></i>flagged anomaly</span><span><i style="background:transparent;border:2px solid #e3b341"></i>true injected anomaly</span></div>
+  <p class="d" id="note"></p>
+  <p class="d">Click the plot to add a point and watch its score. Background: dark = dense/normal, warm = easy to isolate.</p>
+ </div>
+ <div>
+  <label for="ds">Dataset</label>
+  <select id="ds">
+   <option value="logins">Login telemetry: credential stuffing</option>
+   <option value="blob">Gaussian blob + random outliers</option>
+   <option value="clusters">Two clusters, anomalies in between</option>
+   <option value="ring">Ring with a hole in the middle</option>
+   <option value="csv">My CSV (below)</option>
+  </select>
+  <h2 style="margin-top:.8rem">Forest</h2>
+  <div class="ctl"><label for="trees">Trees</label><output id="o-trees"></output><input id="trees" type="range" min="10" max="300" step="10" value="100"></div>
+  <div class="ctl"><label for="psi">Subsample size ψ</label><output id="o-psi"></output><input id="psi" type="range" min="8" max="512" step="8" value="256"></div>
+  <div class="ctl"><label for="cont">Flag top % as anomalies</label><output id="o-cont"></output><input id="cont" type="range" min="0" max="20" step="0.5" value="4"></div>
+  <div class="ctl"><label for="seed">Random seed</label><output id="o-seed"></output><input id="seed" type="range" min="1" max="99" step="1" value="42"></div>
+  <div class="row"><button class="primary" id="refit">Re-grow forest</button><button id="clear">Clear added points</button></div>
+  <div class="stats" id="stats"></div>
+ </div>
+</div></div>
+
+<div class="card"><h2>Most anomalous points</h2>
+ <div class="tblwrap"><table id="tbl"><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div>
+</div>
+
+<div class="card"><h2>Bring your own data</h2>
+ <label for="csv">Numeric CSV (header optional; comma, semicolon or tab separated)</label>
+ <textarea id="csv" spellcheck="false" placeholder="bytes_out,duration&#10;1200,3&#10;1350,4&#10;980000,2"></textarea>
+ <div class="grid" style="margin-top:.5rem">
+  <div><label for="ax">X axis column</label><select id="ax"></select></div>
+  <div><label for="ay">Y axis column</label><select id="ay"></select></div>
+ </div>
+ <div class="row"><button id="load">Analyse CSV</button><span class="d" id="csvmsg" role="status"></span></div>
+ <p class="d">All columns are min-max scaled and used by the forest; the two chosen columns are plotted. Parsed locally — never uploaded.</p>
+</div>
+
+<div class="card"><h2>Try it</h2>
+<div class="row" id="presets">
+ <button data-p="logins">Spot credential stuffing</button>
+ <button data-p="clusters">Anomalies between clusters</button>
+ <button data-p="ring">Hole inside a ring</button>
+ <button data-p="few">Too few trees (noisy)</button>
+ <button data-p="small">Tiny subsample ψ=8</button>
+</div></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
