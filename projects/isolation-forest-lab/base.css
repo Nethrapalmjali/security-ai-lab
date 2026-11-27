@@ -1,0 +1,27 @@
+:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--fg:#e6edf3;--mut:#8b949e;--acc:#58a6ff;--critical:#ff5d5d;--high:#ff9a3c;--medium:#e3b341;--low:#58a6ff;--info:#8b949e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:1rem 16px 3rem}
+a{color:var(--acc)}
+h1{margin:.5rem 0}h2{font-size:1.1rem;margin:0 0 .5rem}
+.sub{color:var(--mut);margin-top:0}
+label{display:block;font-weight:600;margin:.5rem 0 .25rem}
+textarea,input{width:100%;background:#0b0f14;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.6rem;font:14px ui-monospace,monospace}
+textarea{min-height:110px;resize:vertical;word-break:break-all}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+button{background:#21262d;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;cursor:pointer;font:inherit}
+button:hover{border-color:var(--acc)}button.primary{background:#1f6feb;border-color:#1f6feb}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem;margin-top:1rem}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font:13px ui-monospace,monospace}
+.tok .h{color:#ff7b72}.tok .p{color:#d2a8ff}.tok .s{color:#79c0ff}
+.score{font-size:2rem;font-weight:700}
+ul.f{list-style:none;padding:0;margin:0}
+ul.f li{border-left:4px solid var(--info);padding:.4rem .7rem;margin:.5rem 0;background:#0d1117;border-radius:0 6px 6px 0}
+li.critical{border-color:var(--critical)}li.high{border-color:var(--high)}li.medium{border-color:var(--medium)}li.low{border-color:var(--low)}
+.sev{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;margin-right:.4rem}
+.critical .sev{color:var(--critical)}.high .sev{color:var(--high)}.medium .sev{color:var(--medium)}.low .sev{color:var(--low)}
+.d{color:var(--mut);font-size:.9rem;display:block}
+.err{color:var(--critical)}
