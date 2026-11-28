@@ -25,6 +25,7 @@ A growing collection of small, self-contained web tools focused on **cybersecuri
 - **[Gradient Descent Optimizer Race](projects/gradient-descent-lab/)** — Race SGD, Momentum, Nesterov, AdaGrad, RMSProp and Adam across classic loss surfaces and watch how each update rule behaves, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/gradient-descent-lab/)
 - **[Password Strength & Cracking-Time Auditor](projects/password-auditor/)** — Find dictionary, l33t, keyboard-walk and sequence patterns in a password and estimate cracking time under online and offline attacks, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/password-auditor/)
 - **[Isolation Forest Anomaly Lab](projects/isolation-forest-lab/)** — Detect anomalies and credential-stuffing patterns with an Isolation Forest built from scratch, with a live anomaly-score heat map and CSV import, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/isolation-forest-lab/)
+- **[Hash Identifier & Integrity Lab](projects/hash-identifier-lab/)** — Identify hash and password-hash types, compute MD5/SHA digests of text or files, verify downloads and measure entropy, entirely in the browser. · [Live](https://nethrapalmjali.github.io/security-ai-lab/projects/hash-identifier-lab/)
 <!-- PROJECTS:END -->
 
 ## Structure

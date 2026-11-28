@@ -124,5 +124,12 @@
     "category": "AI",
     "description": "Detect anomalies and credential-stuffing patterns with an Isolation Forest built from scratch, with a live anomaly-score heat map and CSV import, entirely in the browser.",
     "date": "2026-11-27"
+  },
+  {
+    "slug": "hash-identifier-lab",
+    "title": "Hash Identifier & Integrity Lab",
+    "category": "Cybersecurity",
+    "description": "Identify hash and password-hash types, compute MD5/SHA digests of text or files, verify downloads and measure entropy, entirely in the browser.",
+    "date": "2026-11-28"
   }
 ]
