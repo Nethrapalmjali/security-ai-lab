@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hash Identifier &amp; Integrity Lab</title>
+<meta name="description" content="Identify hash types, compute MD5/SHA digests of text or files, verify file integrity and measure entropy — entirely in your browser.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<p><a href="../../">← Back to Security &amp; AI Lab</a></p>
+<h1>Hash Identifier &amp; Integrity Lab</h1>
+<p class="sub">Recognise what kind of hash you are looking at, compute digests of text or files, verify downloads and see why fast hashes are wrong for passwords. Files never leave your browser.</p>
+
+<section class="card">
+  <h2>1. Identify a hash</h2>
+  <label for="h">Hash string</label>
+  <input id="h" type="text" autocomplete="off" spellcheck="false" class="mono" value="5f4dcc3b5aa765d61d8327deb882cf99">
+  <div class="row" role="group" aria-label="Example hashes">
+    <button data-ex="5f4dcc3b5aa765d61d8327deb882cf99">MD5</button>
+    <button data-ex="a9993e364706816aba3e25717850c26c9cd0d89d">SHA-1</button>
+    <button data-ex="ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad">SHA-256</button>
+    <button data-ex="$2b$12$KIXQJ1o5vPq2oV9mQ2o4SeJ8mH1xYk4k2v7C0x4c3B9kQe0v0y2Gu">bcrypt</button>
+    <button data-ex="$argon2id$v=19$m=65536,t=3,p=4$c29tZXNhbHQ$RdescudvJCsgt3ub+b+dWRWJTmaaJObG">Argon2id</button>
+    <button data-ex="ungWv48Bz+pBQUDeXa4iI7ADYaOWF3qctBD/YfIAFa0=">Base64 SHA-256</button>
+    <button data-ex="*2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19">MySQL</button>
+  </div>
+  <p id="idsum" class="muted" aria-live="polite"></p>
+  <ul id="idout" class="res"></ul>
+</section>
+
+<section class="card">
+  <h2>2. Hash text or a file</h2>
+  <label for="t">Text</label>
+  <textarea id="t" spellcheck="false">abc</textarea>
+  <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose a file to hash">Drop a file here or <u>click to choose</u>
+    <input id="file" type="file" hidden></div>
+  <p id="fmeta" class="muted"></p>
+  <table><tbody id="digests"></tbody></table>
+  <p class="muted" id="hasherr" role="alert"></p>
+</section>
+
+<section class="card">
+  <h2>3. Verify integrity</h2>
+  <label for="exp">Expected hash (from the vendor's download page)</label>
+  <input id="exp" type="text" autocomplete="off" spellcheck="false" class="mono">
+  <p id="verdict" aria-live="polite"></p>
+  <p class="muted">Compares your expected value against every digest above, ignoring case and whitespace. Remember: a hash on the same page as the download only proves the file was not corrupted, not that it is authentic.</p>
+</section>
+
+<section class="card">
+  <h2>4. Entropy</h2>
+  <p>Shannon entropy: <strong id="ent">–</strong> bits/byte</p>
+  <div class="meter" role="img" aria-label="Entropy meter"><div id="entbar" style="width:0"></div></div>
+  <p id="entv" class="muted"></p>
+</section>
+
+<section class="card">
+  <h2>5. Why not store passwords with SHA-256?</h2>
+  <div class="row"><button id="bench" class="primary">Benchmark this device</button></div>
+  <p id="benchout" aria-live="polite"></p>
+  <table><thead><tr><th>Password</th><th>Charset</th><th>Worst-case time at measured rate</th></tr></thead><tbody id="bf"></tbody></table>
+</section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
